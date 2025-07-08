@@ -1,0 +1,51 @@
+// src/styles/_mixins.scss
+@use "functions" as fn;
+@use "variables" as var;
+
+@mixin wrapper {
+  max-width: fn.rem(1400);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: fn.rem(16);
+  padding-right: fn.rem(16);
+  background-color: var.$background-light;
+}
+
+// links
+@mixin links {
+  text-decoration: none;
+  color: var.$text-normal;
+  font-weight: 500;
+  font-size: var.$font-size-large;
+  transition: color 0.3s ease, font-size 0.3s ease;
+
+  &:hover {
+    color: var.$primary-color;
+  }
+}
+
+// Flexbox
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

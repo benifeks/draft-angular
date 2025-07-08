@@ -1,0 +1,34 @@
+// src/styles/_globals.scss
+
+@use "functions" as fn;
+@use "fonts" as *;
+@use "mixins" as *;
+@use "variables" as *;
+// Сброс отступов и паддингов, настройка box-sizing для всех элементов и псевдоэлементов
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; // Упрощает расчёт размеров элементов
+  list-style: none;
+}
+
+// Базовые стили для body — типографика и цвета по умолчанию
+html,
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-size: fn.rem(16);
+  line-height: 1.5;
+  color: $text-normal;
+  scroll-behavior: smooth;
+}
+
+h3 {
+  font-family: "Neucha", sans-serif;
+}
+
+a {
+  @include links;
+}

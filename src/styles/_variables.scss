@@ -1,0 +1,22 @@
+// src/styles/_variables.scss
+@use "functions" as *;
+
+// Основные цвета
+$primary-color: #3498db;
+$secondary-color: #a18268;
+$background-normal: #e5dfd6;
+$background-light: #f8f9fa;
+$text-normal: #2c3e50;
+$text-light: #f8f9fa;
+
+// Типографика
+$font-size-base: rem(16); // Базовый текст, например body
+$font-size-small: rem(13); // Вспомогательные подписи, примечания
+$font-size-large: rem(18); // Подзаголовки, UI элементы
+$font-size-xl: rem(24); // Основные заголовки
+
+// Точки перехода (breakpoints)
+$breakpoint-sm: rem(480);
+$breakpoint-md: rem(768);
+$breakpoint-lg: rem(1024);
+$breakpoint-xl: rem(1280);
