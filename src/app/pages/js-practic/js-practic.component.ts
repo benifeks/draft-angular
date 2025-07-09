@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
+import { CarouselComponent } from './carousel/carousel.component';
+
 @Component({
   selector: 'app-js-practic',
-  imports: [],
+  imports: [CarouselComponent],
   templateUrl: './js-practic.component.html',
-  styleUrl: './js-practic.component.scss'
+  styleUrl: './js-practic.component.scss',
 })
-export class JsPracticComponent {
-
-}
+export class JsPracticComponent {}

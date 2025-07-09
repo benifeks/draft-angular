@@ -1,6 +1,6 @@
 // src/styles/_globals.scss
 
-@use "functions" as fn;
+@use "functions" as *;
 @use "fonts" as *;
 @use "mixins" as *;
 @use "variables" as *;
@@ -19,13 +19,30 @@
 html,
 body {
   font-family: "Ubuntu", sans-serif;
-  font-size: fn.rem(16);
+  font-size: rem(16);
   line-height: 1.5;
   color: $text-normal;
   scroll-behavior: smooth;
 }
 
+h1,
+h2,
 h3 {
+  text-align: center;
+  margin-left: rem(16);
+  margin-right: rem(16);
+}
+
+h1 {
+  font-size: rem(64);
+}
+
+h2 {
+  font-size: rem(48);
+}
+
+h3 {
+  font-size: rem(32);
   font-family: "Neucha", sans-serif;
 }
 
