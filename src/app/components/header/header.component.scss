@@ -1,0 +1,25 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+
+.nav {
+  @include wrapper;
+  @include flex-between;
+  padding: rem(16) rem(8);
+
+  &__block {
+    @include flex-around;
+    gap: rem(16);
+
+    @media (max-width: $breakpoint-sm) {
+      @include flex-column;
+    }
+  }
+
+  &__block.right {
+    @media (max-width: $breakpoint-sm) {
+      @include flex-column;
+      flex-direction: column-reverse;
+    }
+  }
+}

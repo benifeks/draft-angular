@@ -1,0 +1,29 @@
+<div class="menu-wrapper" [class.open]="isMenuOpen">
+  <button
+    type="button"
+    class="menu-button"
+    (click)="isMenuOpen = toggleMenu(isMenuOpen)"
+  >
+    Страницы 👇
+  </button>
+
+  @if (isMenuOpen) {
+  <ul class="dropdown-menu">
+    <li>
+      <a href="/tasks">Задачи</a>
+    </li>
+    <li>
+      <a href="/mini-projects">Мини-проекты</a>
+    </li>
+    <li>
+      <a
+        href="https://github.com/benifeks/draft-angular"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span lang="en">GitHub</span>
+      </a>
+    </li>
+  </ul>
+  }
+</div>

@@ -1,0 +1,37 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+
+@mixin dropdown-menu {
+  @include flex-column;
+  align-items: flex-start;
+  gap: rem(6);
+  border-radius: rem(4);
+  padding: rem(6);
+  position: absolute;
+  top: 100%; // сразу под кнопкой
+  margin-top: rem(6); // отступ в 30px вниз от кнопки
+  left: 0;
+  z-index: 1;
+  background-color: $background-normal;
+
+  a {
+    font-size: $font-size-small;
+  }
+}
+
+@mixin menu-button {
+  font-size: $font-size-small;
+  cursor: pointer;
+  color: $text-normal;
+  font-weight: bold;
+  padding: rem(6) rem(10);
+  border-radius: rem(4);
+  background-color: $background-light;
+  transition: background-color 0.3s;
+  width: 100%;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}

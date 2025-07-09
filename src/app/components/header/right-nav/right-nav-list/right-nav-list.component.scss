@@ -1,0 +1,16 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+@use "../../../styles/header-mixins" as *;
+
+.menu-wrapper {
+  position: relative; // контейнер для абсолютного позиционирования
+}
+
+.dropdown-menu {
+  @include dropdown-menu;
+}
+
+.menu-button {
+  @include menu-button;
+}

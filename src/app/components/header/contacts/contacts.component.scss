@@ -1,0 +1,22 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+
+.contacts {
+  display: inline-flex;
+  gap: rem(16);
+  align-items: center;
+
+  &__accent {
+    font-size: $font-size-xl;
+    color: $primary-color;
+
+    &:hover {
+      color: $text-normal;
+    }
+  }
+
+  &__accent.telegram {
+    font-size: rem(25);
+  }
+}

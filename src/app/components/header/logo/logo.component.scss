@@ -1,0 +1,8 @@
+@use "fonts" as *;
+@use "variables" as *;
+
+.logo {
+  font-family: "Neucha", sans-serif;
+  font-size: $font-size-xl;
+  font-weight: 700;
+}
