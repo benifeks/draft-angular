@@ -1,4 +1,90 @@
-.contact-mail {
-  color: red;
-  height: 400px;
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+
+.form {
+  @include flex-column;
+  font-size: $font-size-base;
+  max-width: rem(400);
+  margin: 0 auto;
+  padding: rem(24);
+  background-color: $background-normal;
+  border-radius: rem(16);
+  box-shadow: 0 rem(4) rem(12) rgba(0, 0, 0, 0.05);
+  gap: rem(16);
+  font-family: "Segoe UI", sans-serif;
+
+  @media (max-width: $breakpoint-sm) {
+    max-width: rem(280);
+    padding: rem(12);
+  }
+}
+
+.input,
+.textarea {
+  font-size: $font-size-base;
+  width: 100%;
+  padding: rem(12) rem(16);
+  border: rem(1) solid #ccc;
+  border-radius: rem(8);
+  transition: border 0.2s ease;
+  font-family: inherit;
+
+  &:focus {
+    border-color: #819b57;
+    outline: none;
+    background-color: #fff;
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: rem(120);
+}
+
+.button {
+  font-size: $font-size-base;
+  padding: rem(12) rem(20);
+  background-color: $secondary-color;
+  color: $text-light;
+  font-weight: 500;
+  border: none;
+  border-radius: rem(8);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    color: $text-normal;
+    background-color: $primary-color;
+  }
+
+  &:active {
+    color: $text-light;
+    background-color: $secondary-color;
+  }
+}
+
+.status {
+  padding: rem(10) rem(20);
+  border-radius: rem(6);
+  margin-top: rem(15);
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  font-weight: 500;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &.success {
+    background-color: $background-normal;
+    color: #276738;
+    border: rem(1) solid #276738;
+  }
+
+  &.error {
+    background-color: $background-normal;
+    color: #a42828;
+    border: rem(1) solid #a42828;
+  }
 }

@@ -1,1 +1,52 @@
-<p>footer works!</p>
+<section class="footer" id="footer">
+  <nav class="footer__info">
+    <ul class="footer__info--section">
+      <li>
+        <h4>Контакты</h4>
+      </li>
+      <li>
+        <a href="#contact-mail"> Написать мне </a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/benifeks/draft-angular"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Этот проект на <span lang="en">GitHub</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="footer__info--section">
+      <li>
+        <h4>Социальные сети</h4>
+      </li>
+      <li>
+        <a
+          class="accent"
+          href="https://facebook.com/skurko.sergej.2025/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <fa-icon [icon]="icons.facebook" />
+        </a>
+      </li>
+      <li>
+        <a
+          class="accent"
+          href="https://t.me/benifeks"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <fa-icon [icon]="icons.telegram" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="footer__bottom">
+    <p>
+      &copy; {{ year }} <span lang="en">Portfolio.</span>
+      Все права защищены.
+    </p>
+  </div>
+</section>
