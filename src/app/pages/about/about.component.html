@@ -1,1 +1,21 @@
-<section class="about" id="about">about works!</section>
+<section class="about" id="about">
+  <h2 class="about__title">Немного о себе...</h2>
+  <div class="about__container">
+    @for (card of aboutCards; track card.articleTitle) {
+    <article class="about__container--article">
+      <h3>{{ card.articleTitle }}</h3>
+      <div class="image-wrapper">
+        <img
+          class="image-wrapper__image"
+          [src]="card.imageUrl"
+          [alt]="card.imageAlt"
+        />
+      </div>
+      <p>{{ card.message }}</p>
+      <svg class="article__icon">
+        <use [attr.href]="spritePath + card.bottomIcon"></use>
+      </svg>
+    </article>
+    }
+  </div>
+</section>
