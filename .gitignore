@@ -48,3 +48,4 @@ Thumbs.db
 
 # ESLint кэш
 .eslintcache
+.vercel
