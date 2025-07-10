@@ -1,1 +1,35 @@
-<section class="technologies" id="technologies">technologies works!</section>
+<section class="technologies" id="technologies">
+  <h2>Технологии</h2>
+  <h3>
+    <span>🔧 Инструменты </span>
+    <span>и технологии ⚙️</span>
+  </h3>
+  <div class="technologies__container">
+    <div class="technologies__container--block">
+      @for (icon of icons.block_1; track icon) {
+      <svg class="technologies__logo">
+        <use [attr.href]="spritePath + icon" />
+      </svg>
+      }
+    </div>
+    <div class="technologies__container--block">
+      @for (icon of icons.block_2; track icon) {
+      <svg class="technologies__logo">
+        <use [attr.href]="spritePath + icon" />
+      </svg>
+      }
+    </div>
+  </div>
+  <div class="link__react">
+    <a
+      href="https://draft-react-steel.vercel.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Этот же проект, но на
+      <svg class="link__react--logo">
+        <use [attr.href]="spritePath + 'react'" />
+      </svg>
+    </a>
+  </div>
+</section>

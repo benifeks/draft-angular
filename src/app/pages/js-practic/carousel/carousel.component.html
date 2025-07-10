@@ -1,9 +1,12 @@
 <div #swiperContainer class="swiper">
+  <h3>🧩 Мини-проекты 💡</h3>
   <div class="swiper-wrapper">
     @for (slide of slides; track $index) {
     <div class="swiper-slide">
       <article class="swiper-slide__article">
-        <h3>{{ slide.title }}</h3>
+        <h3>
+          <span lang="en">{{ slide.title }}</span>
+        </h3>
         <div class="image-wrapper">
           <img
             [src]="slide.image"

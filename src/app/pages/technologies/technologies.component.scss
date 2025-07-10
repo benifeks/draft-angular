@@ -1,2 +1,98 @@
-.technologies {
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+
+h3 {
+  margin-bottom: rem(24);
+}
+
+.technologies__container {
+  @include flex-center;
+  gap: rem(64);
+
+  @media (max-width: $breakpoint-xl) {
+    gap: rem(54);
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    gap: rem(32);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    @include flex-column;
+    gap: rem(24);
+  }
+
+  &--block {
+    @include flex-between;
+    gap: rem(64);
+
+    @media (max-width: $breakpoint-xl) {
+      gap: rem(54);
+    }
+
+    @media (max-width: $breakpoint-lg) {
+      gap: rem(32);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      gap: rem(16);
+    }
+  }
+}
+
+.technologies__logo {
+  width: rem(56);
+  height: rem(56);
+
+  @media (max-width: $breakpoint-xl) {
+    width: rem(50);
+    height: rem(50);
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    width: rem(44);
+    height: rem(44);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: rem(36);
+    height: rem(36);
+  }
+}
+
+.link__react {
+  @include flex-center;
+  gap: rem(8);
+  margin-top: rem(32);
+
+  a {
+    @include flex-center;
+    font-size: $font-size-xl;
+    text-decoration: underline;
+    gap: rem(8);
+
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-large;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+.link__react--logo {
+  width: rem(36);
+  height: rem(36);
+
+  @media (max-width: $breakpoint-md) {
+    width: rem(28);
+    height: rem(28);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: rem(24);
+    height: rem(24);
+  }
 }
