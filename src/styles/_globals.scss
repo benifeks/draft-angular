@@ -46,6 +46,43 @@ h3 {
   font-family: "Neucha", sans-serif;
 }
 
+@media (max-width: $breakpoint-md) {
+  h1 {
+    font-size: rem(56);
+  }
+  h2 {
+    font-size: rem(40);
+  }
+  h3 {
+    font-size: rem(24);
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  h1 {
+    font-size: rem(48);
+  }
+  h2 {
+    font-size: rem(32);
+  }
+}
+
+header {
+  background-color: $background-light;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+main {
+  @include wrapper;
+}
+
+section {
+  margin-top: rem(80);
+}
+
 a {
   @include links;
 }

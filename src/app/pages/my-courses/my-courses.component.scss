@@ -1,3 +1,54 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+
 .my-courses {
-  color: red;
+  &__container {
+    @include flex-around;
+    gap: rem(2);
+
+    &__item {
+      @include flex-column;
+      font-size: $font-size-large;
+      gap: rem(8);
+      background-color: $background-normal;
+      border-radius: rem(8);
+      padding: rem(8);
+      flex-shrink: 0;
+
+      &Icons {
+        @include flex-around;
+        gap: rem(8);
+
+        &__iconLogo {
+          width: 48px;
+          height: 48px;
+        }
+      }
+
+      @media (max-width: $breakpoint-md) {
+        width: rem(250);
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      @include flex-column;
+      gap: rem(16);
+    }
+  }
+}
+
+.external-link-button {
+  display: inline-block;
+  padding: rem(6) rem(12);
+  background-color: $secondary-color;
+  color: $text-light;
+  border-radius: rem(4);
+  font-weight: 600;
+  transition: background-color 0.3s;
+
+  &:hover {
+    color: $text-normal;
+    background-color: $primary-color;
+  }
 }

@@ -1,1 +1,25 @@
-<div class="my-courses" id="my-courses">my-courses works!</div>
+<section class="my-courses" id="my-courses">
+  <h2>Курсы</h2>
+  <h3>📚 Курсы которые я проходил 👣</h3>
+  <ul class="my-courses__container">
+    @for (course of courses; track course.id) {
+    <li class="my-courses__container__item">
+      <div class="my-courses__container__itemIcons">
+        @for (icon of course.icons; track icon) {
+        <svg class="my-courses__container__itemIcons__iconLogo">
+          <use [attr.href]="spritePath + '#icon-' + icon"></use>
+        </svg>
+        }
+      </div>
+      <a
+        class="external-link-button"
+        [href]="course.link"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        {{ course.title }}
+      </a>
+    </li>
+    }
+  </ul>
+</section>
