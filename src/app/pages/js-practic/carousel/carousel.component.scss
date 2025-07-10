@@ -1,7 +1,7 @@
-@import "swiper/css/bundle";
-@import "functions";
-@import "mixins";
-@import "variables";
+@use "swiper/css/bundle";
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
 
 h3 {
   margin-bottom: rem(24);
