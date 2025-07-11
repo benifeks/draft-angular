@@ -1,0 +1,35 @@
+<article class="card">
+  <h3>Спиральная матрица 🌪️</h3>
+
+  <input
+    class="input"
+    name="SpiralMatrixInput"
+    type="number"
+    min="1"
+    max="9"
+    step="1"
+    pattern="[1-9]"
+    inputmode="numeric"
+    [value]="size()"
+    (input)="onInput($event)"
+    placeholder="Введите размер от 1 до 9"
+  />
+
+  <div class="buttons">
+    <button (click)="start()">▶️ Создать</button>
+    <span>🌀</span>
+    <button (click)="clear()">🆑 Очистить</button>
+  </div>
+
+  <div class="matrix">
+    @for (row of matrix(); let rowIndex = $index; track rowIndex) {
+    <div style="display: flex">
+      @for (cell of row; let colIndex = $index; track colIndex) {
+      <div class="cell">
+        {{ cell }}
+      </div>
+      }
+    </div>
+    }
+  </div>
+</article>

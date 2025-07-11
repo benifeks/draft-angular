@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   public year: number = new Date().getFullYear();
+  public spritePath = 'assets/images/svg/social-icons/symbol-defs.svg#icon-';
 }

@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './contacts.component.html',
   styleUrl: './contacts.component.scss',
 })
-export class ContactsComponent {}
+export class ContactsComponent {
+  public spritePath = 'assets/images/svg/social-icons/symbol-defs.svg#icon-';
+}

@@ -1,22 +1,20 @@
 <ul class="contacts">
   <li>
     <a
-      class="contacts__accent"
       href="https://facebook.com/skurko.sergej.2025/"
       target="_blank"
       rel="noopener noreferrer"
     >
-      F
+      <svg class="icon">
+        <use [attr.href]="spritePath + 'facebook'" />
+      </svg>
     </a>
   </li>
   <li>
-    <a
-      class="contacts__accent telegram"
-      href="https://t.me/benifeks"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      T
+    <a href="https://t.me/benifeks" target="_blank" rel="noopener noreferrer">
+      <svg class="icon">
+        <use [attr.href]="spritePath + 'telegram'" />
+      </svg>
     </a>
   </li>
 </ul>

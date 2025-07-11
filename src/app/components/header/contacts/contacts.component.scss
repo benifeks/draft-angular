@@ -6,17 +6,15 @@
   display: inline-flex;
   gap: rem(16);
   align-items: center;
+}
 
-  &__accent {
-    font-size: $font-size-xl;
-    color: $primary-color;
+.icon {
+  fill: $primary-color;
+  width: rem(28);
+  height: rem(28);
+  transition: fill 0.3s ease;
+}
 
-    &:hover {
-      color: $text-normal;
-    }
-  }
-
-  &__accent.telegram {
-    font-size: rem(25);
-  }
+.icon:hover {
+  fill: $text-normal;
 }

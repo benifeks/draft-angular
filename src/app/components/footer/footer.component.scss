@@ -4,7 +4,6 @@
 
 .footer {
   background-color: #2c3e50;
-  color: white;
 
   &__info {
     @include flex-around;
@@ -18,17 +17,13 @@
 
       a {
         @include links;
-        color: white;
+        color: $text-light;
       }
 
       h4 {
         font-size: rem(24);
         color: $primary-color;
       }
-    }
-
-    &--section .accent {
-      font-size: rem(24);
     }
 
     @media (max-width: $breakpoint-sm) {
@@ -38,6 +33,7 @@
   }
 
   &__bottom {
+    color: $text-light;
     text-align: center;
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -48,4 +44,15 @@
       opacity: 0.8;
     }
   }
+}
+
+.icon {
+  fill: $text-light;
+  width: rem(32);
+  height: rem(32);
+  transition: fill 0.3s ease;
+}
+
+.icon:hover {
+  fill: $primary-color;
 }

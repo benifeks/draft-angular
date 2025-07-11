@@ -1,0 +1,29 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+@use "../styles/tasks-mixins" as *;
+
+.card {
+  @include tasks-card;
+}
+
+.input {
+  @include tasks-input;
+}
+
+.buttons {
+  @include tasks-buttons;
+}
+
+.matrix {
+  margin: auto;
+}
+
+.cell {
+  width: rem(30);
+  height: rem(30);
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
