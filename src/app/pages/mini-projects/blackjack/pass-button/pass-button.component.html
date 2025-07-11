@@ -1,0 +1,7 @@
+<button
+  type="button"
+  class="pass-button"
+  [disabled]="!(gameStateService.canPass$ | async)"
+>
+  Pass
+</button>

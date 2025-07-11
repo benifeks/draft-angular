@@ -1,0 +1,5 @@
+<div class="player-hand">
+  @for (card of playerCards$ | async; track card.code) {
+  <img [src]="card.image" [alt]="card.code" class="card" />
+  }
+</div>

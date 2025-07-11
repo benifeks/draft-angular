@@ -1,1 +1,27 @@
-<p>currency-calculator works!</p>
+<article class="card">
+  <h3>
+    Калькулятор <br />
+    валют💱 Конвертер 💵
+  </h3>
+
+  <input
+    class="input"
+    type="number"
+    [value]="uah()"
+    (input)="onChange($event)"
+    placeholder="Введите сумму в гривне"
+  />
+
+  <div class="buttons">
+    <button (click)="convert()">▶️ Конвертировать</button>
+    <button (click)="clear()">🆑 Очистить</button>
+  </div>
+
+  @if (loading()) {
+  <p>Загрузка...</p>
+  } @if (usd() !== null) {
+  <p>💸 {{ uah() }} грн ≈ {{ usd()!.toFixed(2) }} $</p>
+  } @if (rate() !== null) {
+  <p>📊 Текущий курс: 1 USD = {{ rate() }} грн</p>
+  }
+</article>

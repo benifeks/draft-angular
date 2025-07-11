@@ -1,0 +1,7 @@
+<button
+  type="button"
+  class="draw-card-button"
+  [disabled]="!(gameStateService.canDrawCard$ | async)"
+>
+  Draw card
+</button>

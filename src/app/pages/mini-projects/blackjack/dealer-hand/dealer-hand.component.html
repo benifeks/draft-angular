@@ -1,0 +1,7 @@
+<div class="dealer-hand">
+  @for (card of visibleCards$ | async; track card) { @if (card === 'back') {
+  <img [src]="CARD_BACK_URL" alt="Card back" class="card" />
+  } @else {
+  <img [src]="card.image" [alt]="card.code" class="card" />
+  } }
+</div>
