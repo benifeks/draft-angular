@@ -1,0 +1,16 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+@use "../styles/tasks-mixins" as *;
+
+.card {
+  @include tasks-card;
+}
+
+.input {
+  @include tasks-input;
+}
+
+.buttons {
+  @include tasks-buttons;
+}

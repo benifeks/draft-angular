@@ -1,1 +1,24 @@
-<p>guess-number works!</p>
+<article class="card">
+  <h3>
+    🎯 Угадай<br />
+    число от 1 до 100
+  </h3>
+  <p>Попыток осталось: {{ attemptsLeft() }}</p>
+
+  <input
+    class="input"
+    type="number"
+    min="1"
+    max="100"
+    [value]="guess()"
+    (input)="onInput($event)"
+    placeholder="Введите число"
+  />
+
+  <div class="buttons">
+    <button (click)="submit()" [disabled]="attemptsOver()">▶️ Угадать</button>
+    <button (click)="reset()">🆑 Сброс</button>
+  </div>
+
+  <p *ngIf="result()">{{ result() }}</p>
+</article>
