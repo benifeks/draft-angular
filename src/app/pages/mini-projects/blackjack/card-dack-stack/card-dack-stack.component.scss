@@ -1,0 +1,17 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+
+.stack {
+  position: relative;
+  width: rem(100);
+  height: rem(140);
+
+  &-card {
+    position: absolute;
+    width: rem(100);
+    height: rem(140);
+    border-radius: rem(6);
+    box-shadow: 0 0 rem(4) rgba(0, 0, 0, 0.3);
+  }
+}

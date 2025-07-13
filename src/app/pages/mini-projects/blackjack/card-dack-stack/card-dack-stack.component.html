@@ -1,0 +1,12 @@
+<div class="stack">
+  @for (card of remainingStack$ | async; track $index) {
+  <img
+    [src]="CARD_BACK_URL"
+    alt="Card back"
+    class="stack-card"
+    [style.top.px]="$index * 0.2"
+    [style.left.px]="$index * 0.2"
+    [style.transform]="'rotate(' + $index * 5 + 'deg)'"
+  />
+  }
+</div>

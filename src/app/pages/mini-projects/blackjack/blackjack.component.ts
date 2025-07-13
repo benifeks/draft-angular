@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import { CardDackStackComponent } from './card-dack-stack/card-dack-stack.component';
 import { DealerHandComponent } from './dealer-hand/dealer-hand.component';
 import { DealerScoreComponent } from './dealer-score/dealer-score.component';
 import { DrawCardButtonComponent } from './draw-card-button/draw-card-button.component';
@@ -20,6 +21,7 @@ import { StartGameButtonComponent } from './start-game-button/start-game-button.
     GameResultComponent,
     DrawCardButtonComponent,
     PassButtonComponent,
+    CardDackStackComponent,
   ],
   templateUrl: './blackjack.component.html',
   styleUrl: './blackjack.component.scss',

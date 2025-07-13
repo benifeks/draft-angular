@@ -1,7 +1,8 @@
 <button
   type="button"
   class="draw-card-button"
-  [disabled]="!(gameStateService.canDrawCard$ | async)"
+  [disabled]="!(canDrawCard$ | async)"
+  (click)="onDrawCard()"
 >
-  Draw card
+  🃏 Взять карту
 </button>
