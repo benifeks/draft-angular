@@ -1,6 +1,6 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, combineLatest, map } from 'rxjs';
 
 import { CARD_BACK_URL } from '../constants';
 import { Card } from '../services/deck.service';
@@ -17,12 +17,30 @@ export class DealerHandComponent {
 
   public readonly CARD_BACK_URL = CARD_BACK_URL;
 
-  public readonly visibleCards$: Observable<(Card | 'back')[]> =
-    this.gameStateService.dealerCards$.pipe(
-      map((cards) => {
-        if (cards.length === 0) return [];
-        if (cards.length === 2) return ['back', cards[1]]; // первая карта скрыта
-        return cards;
-      })
-    );
+  /**
+   * Возвращает массив отображаемых карт дилера.
+   * Если флаг hideDealerCard$ активен, первая карта будет скрыта (заменена на "back").
+   */
+  public readonly visibleCards$: Observable<(Card | 'back')[]> = combineLatest([
+    this.gameStateService.dealerCards$,
+    this.gameStateService.hideDealerCard$,
+  ]).pipe(
+    map(([cards, hideFirstCard]) => {
+      if (!cards.length) return [];
+
+      if (hideFirstCard) {
+        return ['back', ...cards.slice(1)];
+      }
+
+      return cards;
+    })
+  );
+
+  /**
+   * trackBy функция для оптимизации рендера списка карт.
+   * Если карта скрыта — используем строку 'back', иначе уникальный код карты.
+   */
+  public trackByCard(index: number, card: Card | 'back'): string {
+    return card === 'back' ? `back-${index}` : card.code;
+  }
 }

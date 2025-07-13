@@ -1,13 +1,19 @@
 import { Card } from '../deck.service';
+import { GameStateService } from '../game-state.service';
 
 import { calculateScore } from './score.utils';
 
 /**
  * Инициализация стартовой руки:
- * 2 карты игроку, 2 дилеру
- * Подсчёт очков обеих сторон
+ * - 2 карты игроку
+ * - 2 карты дилеру
+ * - подсчёт очков
+ * - установка начального состояния
  */
-export function initializeHands(cards: Card[]): {
+export function initializeHands(
+  cards: Card[],
+  gameStateService: GameStateService
+): {
   playerCards: Card[];
   dealerCards: Card[];
   playerScore: number;
@@ -26,11 +32,14 @@ export function initializeHands(cards: Card[]): {
   const playerScore = calculateScore(playerCards);
   const dealerScore = calculateScore(dealerCards);
 
-  // 🚀 Логируем в консоль
-  console.log('🎲 Игрок получил карты:', playerCards);
-  console.log('🧮 Очки игрока:', playerScore);
+  // скрываем одну карту дилера
+  gameStateService.setHideDealerCard(true);
 
-  console.log('🎲 Дилер получил карты:', dealerCards);
+  // 🎯 Сравнение очков и обновление состояния
+  evaluateInitialResult(playerScore, dealerScore, gameStateService);
+
+  // 🚀 Вывод в консоль
+  console.log('🧮 Очки игрока:', playerScore);
   console.log('🧮 Очки дилера (оба):', dealerScore);
 
   return {
@@ -38,6 +47,44 @@ export function initializeHands(cards: Card[]): {
     dealerCards,
     playerScore,
     dealerScore,
-    hideDealerScore: true, // скрываем до завершения игры
+    hideDealerScore: true, // в начале скрываем одну карту дилера
   };
+}
+
+/**
+ * Проверка начальных очков и установка результата
+ */
+function evaluateInitialResult(
+  playerScore: number,
+  dealerScore: number,
+  gameStateService: GameStateService
+): void {
+  gameStateService.setCanDrawCard(false);
+  gameStateService.setCanPass(false);
+  gameStateService.setCanStartGame(true);
+  gameStateService.setHideDealerCard(false);
+  gameStateService.setHideDealerScore(false);
+
+  if (playerScore === 21 && dealerScore === 21) {
+    gameStateService.setGameResult('🤝 Ничья');
+
+    return;
+  }
+  if (playerScore === 21) {
+    gameStateService.setGameResult('🎉 Победа игрока - 21(blackjack)');
+
+    return;
+  }
+  if (dealerScore === 21) {
+    gameStateService.setGameResult('💼 Победа дилера - 21(blackjack)');
+
+    return;
+  }
+  // Игра продолжается
+  gameStateService.setHideDealerCard(true);
+  gameStateService.setHideDealerScore(true);
+  gameStateService.setGameResult('🎲 Игра продолжается');
+  gameStateService.setCanStartGame(false);
+  gameStateService.setCanDrawCard(true);
+  gameStateService.setCanPass(true);
 }

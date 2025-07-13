@@ -31,23 +31,23 @@ export class StartGameButtonComponent {
         this.deckService.drawCards(deckId, 4).subscribe({
           next: (cards) => {
             try {
+              // 🛠️ Инициализируем руки и очки
               const {
                 playerCards,
                 dealerCards,
                 playerScore,
                 dealerScore,
-                hideDealerScore,
-              } = initializeHands(cards);
+                //hideDealerScore,
+              } = initializeHands(cards, this.gameStateService);
 
+              // 🧠 Обновляем состояние игры
               this.gameStateService.setPlayerCards(playerCards);
               this.gameStateService.setDealerCards(dealerCards);
               this.gameStateService.setPlayerScore(playerScore);
               this.gameStateService.setDealerScore(dealerScore);
 
-              // (опционально) скрытие очков дилера можно хранить
+              // ❔ Можно использовать hideDealerScore для управления отображением
               // this.gameStateService.setHideDealerScore(hideDealerScore);
-
-              // 🎯 сюда можно добавить: смена статуса игры, разрешение действий и т.д.
             } catch (error) {
               console.error('❌ Ошибка инициализации карт:', error);
             }

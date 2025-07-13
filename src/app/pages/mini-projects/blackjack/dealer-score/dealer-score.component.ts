@@ -11,13 +11,18 @@ import { GameStateService } from '../services/game-state.service';
   styleUrl: './dealer-score.component.scss',
 })
 export class DealerScoreComponent {
-  private readonly gameStateService: GameStateService =
-    inject(GameStateService);
+  private readonly gameStateService = inject(GameStateService);
 
+  // Объединяем  очки дилера и флаг скрытия очков
   public readonly displayedDealerScore$ = combineLatest([
-    this.gameStateService.dealerCards$,
     this.gameStateService.dealerScore$,
+    this.gameStateService.hideDealerScore$, // флаг скрытия очков
   ]).pipe(
-    map(([cards, score]) => (cards.length === 2 ? '🤔' : score.toString()))
+    map(([score, hideScore]) => {
+      // Если нужно скрыть очки (обычно на старте) — показываем эмодзи
+      if (hideScore) return '🤔';
+      // Иначе показываем очки дилера (число)
+      return score.toString();
+    })
   );
 }
