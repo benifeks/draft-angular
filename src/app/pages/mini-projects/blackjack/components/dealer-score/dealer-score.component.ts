@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { combineLatest, map } from 'rxjs';
 
-import { GameStateService } from '../services/game-state.service';
+import { GameStateService } from '../../services/game-state.service';
 
 @Component({
   selector: 'app-dealer-score',

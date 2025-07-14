@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 
-import { DeckService } from '../services/deck.service';
-import { GameStateService } from '../services/game-state.service';
-import { initializeHands } from '../services/utils/init.utils';
+import { DeckService } from '../../services/deck.service';
+import { GameStateService } from '../../services/game-state.service';
+import { initializeHands } from '../../utils/init.utils';
 
 @Component({
   selector: 'app-start-game-button',

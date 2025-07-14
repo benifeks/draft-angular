@@ -1,0 +1,25 @@
+// Blackjack/styles/_blackjack-variables.scss
+@use "functions" as *;
+@use "fonts" as *;
+
+// @import "../../../../styles/utils/fonts";
+// @import "../../../../styles/utils/functions";
+
+$bj-primary: #006400; // зелёный сукно
+$bj-accent: #ffd700; // золото
+$bj-card-bg: #ffffff; // карта
+$bj-card-border: #999;
+$bj-text-dark: #2c2c2c;
+$bj-text-light: #f8f9fa;
+$bj-bg: #013220; // фон стола
+
+$bj-font-base: 16;
+$bj-card-width: rem(80);
+$bj-card-height: rem(120);
+$bj-hand-extra-space: rem(28); // дополнительное пространство под руку
+$bj-border-radius: rem(8);
+
+$bj-transition: 0.25s ease;
+
+$bj-font-family: "Neucha", sans-serif;
+$bj-font-family-primary: "Ubuntu", sans-serif;

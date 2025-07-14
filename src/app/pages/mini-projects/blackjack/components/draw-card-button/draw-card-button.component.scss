@@ -1,0 +1,81 @@
+@use "functions" as *;
+@use "variables" as *;
+@use "../../styles/blackjack-variables" as *;
+
+.draw-card-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: $bj-font-family;
+}
+
+.title {
+  color: $bj-text-light;
+  letter-spacing: rem(0.5);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+  margin-bottom: 0;
+}
+
+.button-wrapper {
+  min-width: rem(140);
+  min-height: rem(180);
+  padding: rem(44) rem(52) rem(44) rem(44); // станет выше подиум
+  background-color: #2f4429; // сукно тёмно-зелёное
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1%, transparent 0),
+    linear-gradient(45deg, rgba(0, 0, 0, 0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.03) 25%, transparent 25%);
+  background-size: rem(4) rem(4), rem(10) rem(10), rem(10) rem(10);
+  border: rem(2) solid #6b4f2e; // дерево
+  border-radius: rem(10);
+  box-shadow: inset 0 rem(2) rem(4) rgba(0, 0, 0, 0.4),
+    0 rem(4) rem(8) rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  margin-bottom: rem(8);
+}
+
+.button-wrapper:hover {
+  box-shadow: inset 0 0 rem(6) rgba(255, 255, 200, 0.12),
+    0 rem(6) rem(12) rgba(255, 215, 100, 0.3);
+  transform: translateY(rem(-1));
+}
+
+.button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0 auto;
+  cursor: pointer;
+  display: block;
+  width: rem(100);
+  height: rem(140);
+  transition: transform $bj-transition, filter $bj-transition;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
+    filter: brightness(1.2) drop-shadow(0 0 4px gold);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(60%);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    max-width: rem(120);
+  }
+}
+
+.description {
+  font-size: rem(16);
+  color: lighten($bj-text-light, 12%);
+  font-style: italic;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}

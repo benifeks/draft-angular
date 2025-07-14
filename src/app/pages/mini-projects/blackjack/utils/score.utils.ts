@@ -1,4 +1,4 @@
-import { Card } from '../deck.service';
+import { Card } from '../services/deck.service';
 
 /**
  * Возвращает числовое значение карты для подсчёта очков.

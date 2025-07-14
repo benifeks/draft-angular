@@ -1,0 +1,81 @@
+@use "functions" as *;
+@use "./blackjack-variables" as *;
+
+@mixin bj-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin bj-card-style {
+  width: $bj-card-width;
+  height: $bj-card-height;
+  border-radius: $bj-border-radius;
+  background-color: $bj-card-bg;
+  border: 1px solid $bj-card-border;
+  transition: transform $bj-transition;
+}
+
+@mixin bj-table-bg {
+  background-color: $bj-bg;
+}
+
+@mixin bj-score {
+  font-family: $bj-font-family;
+  font-weight: bold;
+  font-size: rem(20);
+  color: $bj-text-light;
+}
+
+@mixin bj-card-hover {
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// bj-buttons
+
+@mixin bj-button-primary {
+  background-color: $bj-accent;
+  color: $bj-text-dark;
+  border: none;
+  box-shadow: 0 2px 6px rgba(255, 215, 0, 0.5);
+  transition: background-color $bj-transition, box-shadow $bj-transition,
+    transform $bj-transition;
+  cursor: pointer;
+  font-size: rem(18);
+  padding: rem(12) rem(20);
+  border-radius: $bj-border-radius;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: rem(16);
+    padding: rem(10) rem(16);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: rem(14);
+    padding: rem(8) rem(12);
+    width: 100%;
+  }
+}
+
+@mixin bj-button-hover {
+  background-color: lighten($bj-accent, 10%);
+  box-shadow: 0 4px 10px rgba(255, 223, 50, 0.7);
+  transform: scale(1.05);
+}
+
+@mixin bj-button-active {
+  background-color: darken($bj-accent, 5%);
+  box-shadow: 0 1px 4px rgba(255, 200, 0, 0.8);
+  transform: scale(0.98);
+}
+
+@mixin bj-button-disabled {
+  background-color: darken($bj-accent, 25%);
+  color: lighten($bj-text-light, 10%);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}

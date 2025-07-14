@@ -1,7 +1,7 @@
 import { take } from 'rxjs';
 
-import { DeckService } from '../deck.service';
-import { GameStateService } from '../game-state.service';
+import { DeckService } from '../services/deck.service';
+import { GameStateService } from '../services/game-state.service';
 
 import { calculateScore } from './score.utils';
 

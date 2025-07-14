@@ -1,5 +1,5 @@
-import { Card } from '../deck.service';
-import { GameStateService } from '../game-state.service';
+import { Card } from '../services/deck.service';
+import { GameStateService } from '../services/game-state.service';
 
 import { finalizeGameState } from './finalize.utils';
 import { calculateScore } from './score.utils';

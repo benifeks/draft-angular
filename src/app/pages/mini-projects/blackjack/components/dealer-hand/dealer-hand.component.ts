@@ -2,9 +2,9 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Observable, combineLatest, map } from 'rxjs';
 
-import { CARD_BACK_URL } from '../constants';
-import { Card } from '../services/deck.service';
-import { GameStateService } from '../services/game-state.service';
+import { Card } from '../../services/deck.service';
+import { GameStateService } from '../../services/game-state.service';
+import { CARD_BACK_URL } from '../../utils/constants';
 
 @Component({
   selector: 'app-dealer-hand',

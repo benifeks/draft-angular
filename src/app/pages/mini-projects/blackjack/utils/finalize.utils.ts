@@ -1,4 +1,4 @@
-import { GameStateService } from '../game-state.service';
+import { GameStateService } from '../services/game-state.service';
 
 /**
  * Завершает раунд игры:

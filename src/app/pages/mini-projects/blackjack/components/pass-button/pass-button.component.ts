@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { take } from 'rxjs';
 
-import { DeckService } from '../services/deck.service';
-import { GameStateService } from '../services/game-state.service';
-import { dealerDrawUntil17 } from '../services/utils/dealer.utils';
-import { finalizeGameState } from '../services/utils/finalize.utils';
-import { calculateScore } from '../services/utils/score.utils';
+import { DeckService } from '../../services/deck.service';
+import { GameStateService } from '../../services/game-state.service';
+import { dealerDrawUntil17 } from '../../utils/dealer.utils';
+import { finalizeGameState } from '../../utils/finalize.utils';
+import { calculateScore } from '../../utils/score.utils';
 
 @Component({
   selector: 'app-pass-button',

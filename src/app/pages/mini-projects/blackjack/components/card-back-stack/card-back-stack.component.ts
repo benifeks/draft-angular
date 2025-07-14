@@ -2,16 +2,16 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { combineLatest, map } from 'rxjs';
 
-import { CARD_BACK_URL } from '../constants';
-import { GameStateService } from '../services/game-state.service';
+import { GameStateService } from '../../services/game-state.service';
+import { CARD_BACK_URL } from '../../utils/constants';
 
 @Component({
-  selector: 'app-card-dack-stack',
+  selector: 'app-card-back-stack',
   imports: [CommonModule],
-  templateUrl: './card-dack-stack.component.html',
-  styleUrl: './card-dack-stack.component.scss',
+  templateUrl: './card-back-stack.component.html',
+  styleUrl: './card-back-stack.component.scss',
 })
-export class CardDackStackComponent {
+export class CardBackStackComponent {
   private readonly gameStateService = inject(GameStateService);
   public readonly CARD_BACK_URL = CARD_BACK_URL;
 

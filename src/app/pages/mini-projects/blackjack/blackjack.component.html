@@ -1,14 +1,19 @@
 <section>
   <div class="blackjack" id="blackjack"><h2 lang="en">Blackjack</h2></div>
-  <div class="buttons">
-    <app-start-game-button></app-start-game-button>
-    <app-draw-card-button></app-draw-card-button>
-    <app-pass-button></app-pass-button>
-    <app-card-dack-stack></app-card-dack-stack>
-  </div>
-  <app-player-hand></app-player-hand>
-  <app-player-score></app-player-score>
-  <app-game-result></app-game-result>
-  <app-dealer-score></app-dealer-score>
-  <app-dealer-hand></app-dealer-hand>
+  <ul class="blackjack-list">
+    <li class="blackjack-list__status">
+      <app-player-score></app-player-score>
+      <app-game-result></app-game-result>
+      <app-dealer-score></app-dealer-score>
+    </li>
+    <li class="blackjack-list__hands">
+      <app-player-hand></app-player-hand>
+      <app-dealer-hand></app-dealer-hand>
+    </li>
+    <li class="blackjack-list__controls">
+      <app-start-game-button></app-start-game-button>
+      <app-draw-card-button></app-draw-card-button>
+      <app-pass-button></app-pass-button>
+    </li>
+  </ul>
 </section>

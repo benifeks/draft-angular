@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 
-import { CardDackStackComponent } from './card-dack-stack/card-dack-stack.component';
-import { DealerHandComponent } from './dealer-hand/dealer-hand.component';
-import { DealerScoreComponent } from './dealer-score/dealer-score.component';
-import { DrawCardButtonComponent } from './draw-card-button/draw-card-button.component';
-import { GameResultComponent } from './game-result/game-result.component';
-import { PassButtonComponent } from './pass-button/pass-button.component';
-import { PlayerHandComponent } from './player-hand/player-hand.component';
-import { PlayerScoreComponent } from './player-score/player-score.component';
-import { StartGameButtonComponent } from './start-game-button/start-game-button.component';
+import { DealerHandComponent } from './components/dealer-hand/dealer-hand.component';
+import { DealerScoreComponent } from './components/dealer-score/dealer-score.component';
+import { DrawCardButtonComponent } from './components/draw-card-button/draw-card-button.component';
+import { GameResultComponent } from './components/game-result/game-result.component';
+import { PassButtonComponent } from './components/pass-button/pass-button.component';
+import { PlayerHandComponent } from './components/player-hand/player-hand.component';
+import { PlayerScoreComponent } from './components/player-score/player-score.component';
+import { StartGameButtonComponent } from './components/start-game-button/start-game-button.component';
 
 @Component({
   selector: 'app-blackjack',
@@ -21,7 +20,6 @@ import { StartGameButtonComponent } from './start-game-button/start-game-button.
     GameResultComponent,
     DrawCardButtonComponent,
     PassButtonComponent,
-    CardDackStackComponent,
   ],
   templateUrl: './blackjack.component.html',
   styleUrl: './blackjack.component.scss',
