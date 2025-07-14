@@ -1,0 +1,31 @@
+@use "functions" as *;
+@use "variables" as *;
+
+@use "../../styles/blackjack-mixins" as *;
+@use "../../styles/blackjack-variables" as *;
+
+.game-button {
+  @include bj-button-primary;
+  padding: rem(12) rem(20);
+  border-radius: $bj-border-radius;
+  font-family: $bj-font-family;
+  font-weight: bold;
+  font-size: rem(18);
+
+  &:hover:not(:disabled) {
+    @include bj-button-hover;
+  }
+
+  &:active:not(:disabled) {
+    @include bj-button-active;
+  }
+
+  &:disabled {
+    @include bj-button-disabled;
+  }
+
+  &:focus-visible {
+    outline: 2px solid lighten($bj-accent, 40%);
+    outline-offset: 2px;
+  }
+}

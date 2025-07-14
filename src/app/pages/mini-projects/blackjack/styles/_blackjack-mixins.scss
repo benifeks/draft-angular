@@ -1,4 +1,5 @@
 @use "functions" as *;
+@use "variables" as *;
 @use "./blackjack-variables" as *;
 
 @mixin bj-flex {

@@ -1,8 +1,6 @@
 @use "functions" as *;
-@use "mixins" as *;
-@use "variables" as *;
 
 .card {
-  width: rem(80);
-  height: rem(106);
+  width: rem(100);
+  height: rem(140);
 }

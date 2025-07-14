@@ -1,0 +1,23 @@
+@use "functions" as *;
+@use "variables" as *;
+
+@use "../../styles/blackjack-variables" as *;
+
+.game-result {
+  font-size: rem(20);
+  font-weight: 700;
+  color: $bj-accent;
+  text-shadow: 0 0 rem(3) rgba(255, 215, 0, 0.6);
+  transition: transform 0.3s ease;
+
+  @media (min-width: $breakpoint-sm) {
+    &:not(:empty):hover {
+      transform: scale(1.05);
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: rem(18);
+    padding: rem(4) rem(8);
+  }
+}

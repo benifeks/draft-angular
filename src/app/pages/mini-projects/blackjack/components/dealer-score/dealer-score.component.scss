@@ -1,0 +1,35 @@
+@use "functions" as *;
+@use "variables" as *;
+
+@use "../../styles/blackjack-variables" as *;
+
+.dealer-score {
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  font-size: rem(18);
+  font-weight: 500;
+
+  .label {
+    color: lighten($bj-accent, 15%);
+    font-weight: 600;
+  }
+
+  .value {
+    font-size: rem(20);
+    color: $bj-text-light;
+    background: rgba(255, 255, 255, 0.05);
+    padding: rem(4) rem(8);
+    border-radius: rem(6);
+    box-shadow: inset 0 0 rem(3) rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    font-size: rem(16);
+
+    .value {
+      font-size: rem(18);
+    }
+  }
+}

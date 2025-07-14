@@ -1,3 +1,109 @@
 @use "functions" as *;
 @use "mixins" as *;
 @use "variables" as *;
+@use "./styles/animations" as *;
+@use "./styles/blackjack-variables" as *;
+@use "./styles/blackjack-mixins" as *;
+
+.blackjack {
+  padding: rem(24);
+
+  @media (max-width: $breakpoint-md) {
+    padding: rem(16);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: rem(12);
+  }
+}
+
+.blackjack-list {
+  @include flex-column;
+  gap: rem(24);
+  padding: rem(24);
+  background-color: $bj-bg;
+  border-radius: $bj-border-radius;
+  box-shadow: 0 0 rem(6) rgba(0, 0, 0, 0.25);
+  list-style: none;
+  color: $bj-text-light;
+  font-family: $bj-font-family;
+
+  background: radial-gradient(
+    ellipse at center,
+    mix($bj-accent, $bj-bg, 10%) 0%,
+    $bj-bg 45%,
+    darken($bj-bg, 6%) 100%
+  );
+
+  animation: candleGlow 4s ease-in-out infinite;
+
+  @media (max-width: $breakpoint-md) {
+    gap: rem(16);
+    padding: rem(16);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    gap: rem(12);
+    padding: rem(12);
+  }
+}
+
+.blackjack-list__hands {
+  @include bj-flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: rem(150);
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(20);
+  }
+}
+
+.blackjack-list__status {
+  @include flex-between;
+  align-items: center;
+  min-width: rem(600);
+  min-height: rem(66);
+  width: 100%;
+  padding: rem(12) rem(16);
+  border: rem(2) dashed rgba(255, 215, 0, 0.3);
+  border-radius: $bj-border-radius;
+  background: linear-gradient(
+    to bottom,
+    darken($bj-bg, 2%),
+    darken($bj-bg, 6%)
+  );
+  box-shadow: 0 0 rem(6) rgba(0, 0, 0, 0.4);
+  font-family: $bj-font-family;
+  color: $bj-text-light;
+  text-shadow: 0 0 rem(2) rgba(0, 0, 0, 0.4);
+  list-style: none;
+  gap: rem(12);
+
+  @media (max-width: $breakpoint-md) {
+    min-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: rem(16);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    text-align: center;
+    gap: rem(8);
+    padding: rem(10);
+  }
+}
+
+.blackjack-list__controls {
+  @include flex-center;
+  gap: rem(12);
+
+  @media (max-width: $breakpoint-sm) {
+    @include flex-column;
+    gap: rem(10);
+    width: 100%;
+  }
+}

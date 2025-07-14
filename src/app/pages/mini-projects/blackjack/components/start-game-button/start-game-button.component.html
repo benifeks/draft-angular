@@ -1,8 +1,8 @@
 <button
   type="button"
-  class="start-game-button"
+  class="game-button"
   (click)="startGame()"
   [disabled]="!(gameStateService.canStartGame$ | async)"
 >
-  Start Game
+  Начать игру
 </button>
