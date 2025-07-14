@@ -1,0 +1,30 @@
+@if (users().length === 0) {
+<p>Пользователи не загружены.</p>
+} @else {
+<div class="table-wrapper">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>✔️</th>
+        <th>Имя</th>
+        <th>Возраст</th>
+        <th>Инфо</th>
+        <th>Удалить</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users(); track user.login.uuid) {
+      <tr>
+        <td>📁</td>
+        <td>{{ user.name.first }} {{ user.name.last }}</td>
+        <td>{{ user.dob.age }}</td>
+        <td>ℹ️</td>
+        <td>
+          <button (click)="remove(user.login.uuid)">❌</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+}

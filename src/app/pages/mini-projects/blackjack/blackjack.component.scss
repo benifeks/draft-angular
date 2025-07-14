@@ -7,6 +7,7 @@
 
 .blackjack {
   padding: rem(24);
+  margin-top: 0;
 
   @media (max-width: $breakpoint-md) {
     padding: rem(16);

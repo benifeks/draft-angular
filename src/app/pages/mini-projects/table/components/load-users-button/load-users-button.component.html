@@ -1,0 +1,4 @@
+<button type="button" (click)="loadUsers()" [disabled]="isLoading()">
+  @if (isLoading(); as loading) { Загрузка... } @else { Загрузить пользователей
+  }
+</button>

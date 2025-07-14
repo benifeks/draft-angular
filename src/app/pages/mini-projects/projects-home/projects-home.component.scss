@@ -3,5 +3,23 @@
 @use "variables" as *;
 
 .projects-home {
-  color: red;
+  padding: rem(24);
+  margin-top: 0;
+  text-align: center;
+  color: $text-normal;
+
+  @include flex-column;
+  gap: rem(16);
+}
+
+.projects-home__title {
+  font-weight: bold;
+  color: $primary-color;
+}
+
+.projects-home__description {
+  font-size: $font-size-base;
+  max-width: rem(800);
+  line-height: 1.6;
+  color: $text-normal;
 }
