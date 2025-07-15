@@ -1,6 +1,7 @@
 import { Component, computed } from '@angular/core';
 
-import { usersSignal } from '../../utils/users.store';
+import { User } from '../../types/user.types';
+import { selectedUserSignal, usersSignal } from '../../utils/users.store';
 
 @Component({
   selector: 'app-users-table',
@@ -15,5 +16,9 @@ export class UsersTableComponent {
   // ❌ Удаление по uuid
   remove(uuid: string) {
     usersSignal.update((users) => users.filter((u) => u.login.uuid !== uuid));
+  }
+
+  show(user: User) {
+    selectedUserSignal.set(user);
   }
 }

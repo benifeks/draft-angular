@@ -1,0 +1,12 @@
+<div class="overlay" *ngIf="user() as u" (click)="close()">
+  <div class="card" (click)="$event.stopPropagation()">
+    <button class="close" (click)="close()">❌</button>
+    <img class="avatar" [src]="u.picture.large" [alt]="u.name.first" />
+    <h2>{{ u.name.first }} {{ u.name.last }}</h2>
+    <p><strong>Пол:</strong> {{ u.gender }}</p>
+    <p><strong>Возраст:</strong> {{ u.dob.age }}</p>
+    <p><strong>Email:</strong> {{ u.email }}</p>
+    <p><strong>Телефон:</strong> {{ u.phone }}</p>
+    <p><strong>Страна:</strong> {{ u.location.country }}</p>
+  </div>
+</div>
