@@ -1,0 +1,32 @@
+@use "sass:color";
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+@use "../../styles/variablesTable" as *;
+@use "../../styles/mixinsTable" as *;
+
+.controls {
+  @include flex-between;
+  gap: rem(8);
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    padding: rem(12);
+  }
+}
+
+.load-button {
+  @include table-button();
+}
+
+.delete-button {
+  @include table-button($color-error);
+}
+
+.load-button,
+.delete-button {
+  @media (max-width: $breakpoint-sm) {
+    font-size: rem(14);
+    padding: rem(10) rem(18);
+  }
+}

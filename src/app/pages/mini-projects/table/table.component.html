@@ -1,6 +1,15 @@
-<div class="table" id="table">
+<section class="table" id="table">
   <h2 lang="en">Table</h2>
-  <app-load-users-button></app-load-users-button>
-  <app-users-table></app-users-table>
+  <ul class="block-list">
+    <li class="block-list__item buttons">
+      <app-load-users-button></app-load-users-button>
+    </li>
+    <li class="block-list__item">
+      <app-users-table></app-users-table>
+    </li>
+    <li class="block-list__item">
+      <app-checked-users-swiper></app-checked-users-swiper>
+    </li>
+  </ul>
   <app-user-details-card></app-user-details-card>
-</div>
+</section>

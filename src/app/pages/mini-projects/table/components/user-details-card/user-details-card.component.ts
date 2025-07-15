@@ -5,14 +5,17 @@ import { selectedUserSignal } from '../../utils/users.store';
 
 @Component({
   selector: 'app-user-details-card',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './user-details-card.component.html',
   styleUrl: './user-details-card.component.scss',
 })
 export class UserDetailsCardComponent {
-  user = computed(() => selectedUserSignal());
+  // 👁️ Используется в шаблоне
+  public readonly user = computed(() => selectedUserSignal());
 
-  close() {
+  // ❌ Закрыть модалку
+  public close(): void {
     selectedUserSignal.set(null);
   }
 }

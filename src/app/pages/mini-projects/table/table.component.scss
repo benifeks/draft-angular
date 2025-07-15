@@ -1,3 +1,27 @@
+@use "sass:color";
 @use "functions" as *;
 @use "mixins" as *;
 @use "variables" as *;
+@use "./styles/variablesTable" as *;
+@use "./styles/mixinsTable" as *;
+
+.table {
+  margin-top: 0;
+  padding: rem(24) rem(16);
+  background-color: $color-bg;
+  min-height: 100vh;
+}
+
+.block-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.block-list__item {
+  background-color: $color-surface;
+  padding: rem(16);
+  border-radius: rem(12);
+  box-shadow: $shadow-light;
+  margin-bottom: rem(24);
+}

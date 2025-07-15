@@ -1,0 +1,73 @@
+@use "sass:color";
+@use "swiper/css/bundle";
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+@use "../../styles/variablesTable" as *;
+@use "../../styles/mixinsTable" as *;
+
+.swiper {
+  width: 100%;
+  margin: rem(32) auto;
+}
+
+.swiper-slide {
+  @include flex-center;
+}
+
+.user-card {
+  position: relative;
+  background: $color-surface;
+  padding: rem(24);
+  border-radius: rem(12);
+  text-align: center;
+  box-shadow: $shadow-light;
+
+  button {
+    position: absolute;
+    background: transparent;
+    border: none;
+    font-size: rem(18);
+    cursor: pointer;
+
+    &:first-of-type {
+      top: 8px;
+      left: 8px; // ℹ️
+    }
+
+    &:last-of-type {
+      top: 8px;
+      right: 8px; // ❌
+    }
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    width: rem(180);
+    min-height: rem(260);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    width: rem(150);
+    min-height: rem(240);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: rem(130);
+    min-height: rem(220);
+  }
+}
+
+.avatar {
+  width: rem(100);
+  height: rem(100);
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: rem(16);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
+}

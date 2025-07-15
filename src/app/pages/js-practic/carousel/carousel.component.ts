@@ -1,6 +1,13 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import Swiper from 'swiper/bundle';
+
 import 'swiper/css/bundle';
 import { CAROUSEL_SLIDES, CarouselSlide } from './carousel-slides.data';
 
@@ -11,7 +18,7 @@ import { CAROUSEL_SLIDES, CarouselSlide } from './carousel-slides.data';
   styleUrls: ['./carousel.component.scss'],
   imports: [RouterLink],
 })
-export class CarouselComponent implements AfterViewInit {
+export class CarouselComponent implements AfterViewInit, OnDestroy {
   @ViewChild('swiperContainer', { static: false })
   swiperContainer!: ElementRef<HTMLDivElement>;
   private swiper?: Swiper;

@@ -1,4 +1,15 @@
-<button type="button" (click)="loadUsers()" [disabled]="isLoading()">
-  @if (isLoading(); as loading) { Загрузка... } @else { Загрузить пользователей
-  }
-</button>
+<div class="controls">
+  <button
+    type="button"
+    class="load-button"
+    (click)="loadUsers()"
+    [disabled]="isLoading()"
+  >
+    @if (isLoading(); as loading) { Загрузка... } @else { Загрузить
+    пользователей }
+  </button>
+
+  <button type="button" class="delete-button" (click)="clearAll()">
+    Очистить всех
+  </button>
+</div>

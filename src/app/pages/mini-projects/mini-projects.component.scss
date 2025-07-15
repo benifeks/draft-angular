@@ -5,6 +5,12 @@
 .mini-projects__links {
   @include flex-around;
   gap: rem(10);
+
+  @media (max-width: 600px) {
+    @include flex-column;
+    gap: rem(16);
+    margin-top: rem(120);
+  }
 }
 
 a {
@@ -25,3 +31,31 @@ a {
     color: $text-normal;
   }
 }
+
+// @use "functions" as *;
+// @use "mixins" as *;
+// @use "variables" as *;
+
+// .mini-projects__links {
+//   @include flex-around;
+//   gap: rem(10);
+// }
+
+// a {
+//   padding: rem(8) rem(12);
+//   border-radius: rem(4);
+//   background-color: lighten($primary-color, 30%);
+//   color: $text-normal;
+//   font-weight: bold;
+//   transition: background-color 0.3s;
+
+//   &:hover {
+//     background-color: $primary-color;
+//     color: white;
+//   }
+
+//   &:active {
+//     background-color: $secondary-color;
+//     color: $text-normal;
+//   }
+// }

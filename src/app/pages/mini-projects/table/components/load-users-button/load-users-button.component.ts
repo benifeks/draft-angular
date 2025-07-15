@@ -1,7 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 
 import { UserService } from '../../services/user.service';
-import { usersSignal } from '../../utils/users.store';
+import {
+  checkedUsersSignal,
+  selectedUserSignal,
+  usersSignal,
+} from '../../utils/users.store';
 
 @Component({
   selector: 'app-load-users-button',
@@ -32,5 +36,12 @@ export class LoadUsersButtonComponent {
         this.isLoading.set(false);
       },
     });
+  }
+
+  // 🔥 Очистить всех пользователей
+  public clearAll(): void {
+    usersSignal.set([]);
+    checkedUsersSignal.set([]);
+    selectedUserSignal.set(null);
   }
 }

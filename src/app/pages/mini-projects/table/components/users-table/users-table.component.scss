@@ -1,0 +1,90 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+@use "../../styles/variablesTable" as *;
+@use "../../styles/mixinsTable" as *;
+
+// Обёртка таблицы
+.table-wrapper {
+  background-color: $color-surface;
+  border-radius: rem(12);
+  padding: rem(24);
+  box-shadow: $shadow-light;
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: rem(12);
+      text-align: left;
+      border-bottom: 1px solid $color-border;
+    }
+
+    th {
+      background-color: $color-primary-light;
+      color: $color-text-primary;
+      font-weight: 600;
+      font-size: rem(16);
+    }
+
+    td {
+      font-size: rem(15);
+      color: $color-text-secondary;
+
+      button {
+        @include table-button($color-secondary, $color-text-primary);
+        padding: rem(6) rem(10);
+        font-size: rem(14);
+      }
+    }
+
+    tr:hover {
+      background-color: rgba($color-primary-light, 0.5);
+    }
+
+    input[type="checkbox"] {
+      width: rem(18);
+      height: rem(18);
+      cursor: pointer;
+    }
+  }
+}
+
+// 📱 Адаптив
+@media (max-width: $breakpoint-md) {
+  .table-wrapper {
+    padding: rem(16);
+    border-radius: rem(8);
+
+    table {
+      th,
+      td {
+        padding: rem(8);
+        font-size: rem(14);
+      }
+
+      td button {
+        font-size: rem(12);
+        padding: rem(4) rem(8);
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .table-wrapper {
+    padding: rem(12);
+
+    .table-controls {
+      flex-direction: column;
+      align-items: flex-start;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

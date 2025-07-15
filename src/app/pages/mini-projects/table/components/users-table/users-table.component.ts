@@ -1,7 +1,11 @@
 import { Component, computed } from '@angular/core';
 
 import { User } from '../../types/user.types';
-import { selectedUserSignal, usersSignal } from '../../utils/users.store';
+import {
+  checkedUsersSignal,
+  selectedUserSignal,
+  usersSignal,
+} from '../../utils/users.store';
 
 @Component({
   selector: 'app-users-table',
@@ -10,15 +14,35 @@ import { selectedUserSignal, usersSignal } from '../../utils/users.store';
   styleUrl: './users-table.component.scss',
 })
 export class UsersTableComponent {
-  // 💡 Геттер на массив пользователей (можно фильтровать/сортировать здесь)
-  users = computed(() => usersSignal());
+  // 👁️ Используется в шаблоне => public
+  public readonly users = computed(() => usersSignal());
+  public readonly checkedUsers = computed(() => checkedUsersSignal());
 
-  // ❌ Удаление по uuid
-  remove(uuid: string) {
-    usersSignal.update((users) => users.filter((u) => u.login.uuid !== uuid));
+  // ❌ Удалить пользователя
+  public remove(uuid: string): void {
+    usersSignal.update((prev) => prev.filter((u) => u.login.uuid !== uuid));
+    checkedUsersSignal.update((prev) =>
+      prev.filter((u) => u.login.uuid !== uuid)
+    );
   }
 
-  show(user: User) {
+  // ℹ️ Показать детали
+  public show(user: User): void {
     selectedUserSignal.set(user);
+  }
+
+  // ✅ Переключить чекбокс
+  public toggleCheck(user: User): void {
+    checkedUsersSignal.update((prev) => {
+      const exists = prev.some((u) => u.login.uuid === user.login.uuid);
+      return exists
+        ? prev.filter((u) => u.login.uuid !== user.login.uuid)
+        : [...prev, user];
+    });
+  }
+
+  // ✅ Проверка, выбран ли пользователь
+  public isChecked(userUuid: string): boolean {
+    return this.checkedUsers().some((u) => u.login.uuid === userUuid);
   }
 }

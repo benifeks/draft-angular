@@ -15,13 +15,17 @@
     <tbody>
       @for (user of users(); track user.login.uuid) {
       <tr>
-        <td>📁</td>
+        <td>
+          <input
+            type="checkbox"
+            [checked]="isChecked(user.login.uuid)"
+            (change)="toggleCheck(user)"
+          />
+        </td>
         <td>{{ user.name.first }} {{ user.name.last }}</td>
         <td>{{ user.dob.age }}</td>
         <td><button (click)="show(user)">ℹ️</button></td>
-        <td>
-          <button (click)="remove(user.login.uuid)">❌</button>
-        </td>
+        <td><button (click)="remove(user.login.uuid)">❌</button></td>
       </tr>
       }
     </tbody>

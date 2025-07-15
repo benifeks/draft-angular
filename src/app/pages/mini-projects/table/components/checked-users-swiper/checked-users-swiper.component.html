@@ -1,0 +1,28 @@
+<div #swiperContainer class="swiper">
+  @if (users().length > 0) {
+  <div class="swiper-wrapper">
+    @for (user of users(); track user.login.uuid) {
+    <div class="swiper-slide">
+      <div class="user-card">
+        <button (click)="show(user)">ℹ️</button>
+        <button (click)="toggleCheck(user)">❌</button>
+        <img
+          class="avatar"
+          [src]="user.picture.large"
+          [alt]="user.name.first"
+        />
+        <h4>{{ user.name.first }} {{ user.name.last }}</h4>
+        <li>🎂 Возраст: {{ user.dob.age }}</li>
+        <li>🌍 Страна: {{ user.location.country }}</li>
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-pagination"></div>
+  } @else {
+  <p class="no-users">Нет выбранных пользователей</p>
+  }
+</div>
