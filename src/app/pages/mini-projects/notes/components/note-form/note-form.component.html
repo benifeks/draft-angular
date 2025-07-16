@@ -1,0 +1,27 @@
+<form (submit)="submit($event)" class="note-form">
+  @if (errorMessage()) {
+  <div class="error" (click)="clearError()">
+    {{ errorMessage() }}
+  </div>
+  }
+
+  <label for="title">Название</label>
+  <input
+    id="title"
+    type="text"
+    [value]="title()"
+    (input)="title.set($any($event.target).value)"
+    required
+  />
+
+  <label for="content">Текст</label>
+  <textarea
+    id="content"
+    rows="4"
+    [value]="content()"
+    (input)="content.set($any($event.target).value)"
+    required
+  ></textarea>
+
+  <button type="submit">Добавить</button>
+</form>

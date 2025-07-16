@@ -1,0 +1,18 @@
+<div class="notes-list">
+  @if (notes().length === 0) {
+  <p>Заметок пока нет.</p>
+  } @else { @for (note of notes(); track note.id) {
+  <article class="note">
+    <h3>{{ note.title }}</h3>
+    <p>{{ note.content }}</p>
+    <small> Создано: {{ note.createdAt | date : "dd.MM.yyyy (HH:mm)" }} </small>
+    @if (note.updatedAt) {
+    <small>
+      Обновлено: {{ note.updatedAt | date : "dd.MM.yyyy (HH:mm)" }}
+    </small>
+    }
+
+    <button (click)="delete(note.id)">Удалить</button>
+  </article>
+  } }
+</div>
