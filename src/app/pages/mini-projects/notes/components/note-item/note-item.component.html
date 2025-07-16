@@ -1,1 +1,27 @@
-<article class="note">class="note"</article>
+@if (note()) {
+<div class="modal-backdrop">
+  <div class="modal">
+    <h2>{{ note()!.title }}</h2>
+
+    <p class="content">
+      {{ note()!.content }}
+    </p>
+
+    <div class="meta">
+      <small
+        >Создано: {{ note()!.createdAt | date : "dd.MM.yyyy (HH:mm)" }}</small
+      >
+      @if (note()!.updatedAt) {
+      <small
+        >Обновлено: {{ note()!.updatedAt | date : "dd.MM.yyyy (HH:mm)" }}</small
+      >
+      }
+    </div>
+
+    <div class="buttons">
+      <button type="button" (click)="edit()">Редактировать</button>
+      <button type="button" (click)="close()">Закрыть</button>
+    </div>
+  </div>
+</div>
+}

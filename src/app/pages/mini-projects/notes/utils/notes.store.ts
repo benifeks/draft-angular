@@ -1,17 +1,18 @@
-import { signal } from '@angular/core';
+import { EnvironmentInjector, inject, signal } from '@angular/core';
 
 import { Note } from '../types/notes.types';
 
-/**
- * Хранилище всех заметок — сигнал-массив Note[]
- */
-export const notes = signal<Note[]>([]);
+import { syncSignalWithLocalStorage } from './local-storage.util';
 
-/**
- * Добавляет новую заметку в список.
- * @param title Заголовок заметки
- * @param content Текст заметки
- */
+export const notes = signal<Note[]>([]);
+export const selectedNoteId = signal<string | null>(null);
+export const editingNoteId = signal<string | null>(null); //для редактирования
+
+export function setupNotesStore(): void {
+  const injector = inject(EnvironmentInjector);
+  syncSignalWithLocalStorage('notes-app/notes', notes, injector);
+}
+
 export function addNote(title: string, content: string): void {
   const now: Date = new Date();
 
@@ -27,13 +28,6 @@ export function addNote(title: string, content: string): void {
   ]);
 }
 
-/**
- * Обновляет существующую заметку по id.
- * Обновляет также дату изменения.
- * @param id Идентификатор заметки
- * @param title Новый заголовок
- * @param content Новый текст
- */
 export function updateNote(id: string, title: string, content: string): void {
   const now: Date = new Date();
 
@@ -44,19 +38,12 @@ export function updateNote(id: string, title: string, content: string): void {
   );
 }
 
-/**
- * Удаляет заметку по id.
- * @param id Идентификатор заметки
- */
 export function deleteNote(id: string): void {
   notes.update((current: Note[]) =>
     current.filter((note: Note) => note.id !== id)
   );
 }
 
-/**
- * Полностью очищает все заметки.
- */
 export function clearNotes(): void {
   notes.set([]);
 }

@@ -16,31 +16,26 @@
   width: 100%;
 
   h2 {
-    margin-bottom: 0.5rem;
-  }
-
-  .content {
-    margin: 1rem 0;
-    white-space: pre-line;
-  }
-
-  .meta {
-    font-size: 0.9rem;
-    color: #666;
     margin-bottom: 1rem;
+  }
 
-    small {
-      display: block;
-    }
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
   }
 
   .buttons {
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
-
-    button {
-      padding: 0.4rem 1rem;
-    }
   }
 }
