@@ -1,0 +1,47 @@
+.indicator-wrapper {
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+.indicator-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.indicator-bg {
+  stroke: #ccc;
+  stroke-width: 10;
+  fill: none;
+}
+
+.indicator-progress {
+  stroke-width: 10;
+  fill: none;
+  stroke-linecap: round;
+}
+
+// Цвета по заполненности
+.indicator-low {
+  stroke: limegreen;
+}
+
+.indicator-medium {
+  stroke: orange;
+}
+
+.indicator-high {
+  stroke: crimson;
+}
+
+.indicator-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}

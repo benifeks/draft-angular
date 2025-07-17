@@ -1,0 +1,17 @@
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+
+  span {
+    font-weight: bold;
+    min-width: 2.5rem;
+    text-align: center;
+  }
+
+  .reset-btn {
+    margin-left: auto;
+    color: crimson;
+  }
+}

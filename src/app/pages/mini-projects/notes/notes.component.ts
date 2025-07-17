@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { StorageIndicatorComponent } from '../../../shared/dev/local-storage-kit/storage-indicator/storage-indicator.component';
+import { StorageSimulatorComponent } from '../../../shared/dev/local-storage-kit/storage-simulator/storage-simulator.component';
+
 import { NoteEditComponent } from './components/note-edit/note-edit.component';
 import { NoteFormComponent } from './components/note-form/note-form.component';
 import { NoteItemComponent } from './components/note-item/note-item.component';
@@ -15,6 +18,8 @@ import { setupNotesStore } from './utils/notes.store';
     NotesListComponent,
     NoteItemComponent,
     NoteEditComponent,
+    StorageIndicatorComponent,
+    StorageSimulatorComponent,
   ],
 })
 export class NotesComponent {
