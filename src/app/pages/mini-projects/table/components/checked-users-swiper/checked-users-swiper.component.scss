@@ -16,6 +16,7 @@
 }
 
 .user-card {
+  width: rem(250);
   position: relative;
   background: $color-surface;
   padding: rem(24);
@@ -67,7 +68,38 @@
 
 .swiper-button-prev,
 .swiper-button-next {
+  width: rem(48);
+  height: rem(48);
+  border: 3px solid $color-primary;
+  border-radius: 50%;
+
   @media (max-width: $breakpoint-sm) {
     display: none;
   }
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  text-align: center;
+  font-size: rem(24);
+  color: $color-primary;
+
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
+}
+
+.swiper-pagination {
+  padding: rem(8);
+}
+
+.swiper-pagination-bullet {
+  width: rem(18);
+  height: rem(18);
+  background-color: color.adjust($color-primary, $lightness: 30%) !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $color-primary !important;
 }

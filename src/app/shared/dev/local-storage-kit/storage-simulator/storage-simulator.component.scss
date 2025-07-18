@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "functions" as *;
 @use "variables" as *;
 @use "mixins" as *;
@@ -44,7 +45,7 @@ $primary-color: #2c3e50;
   transition: background-color 0.2s ease, transform 0.1s ease;
 
   &:hover {
-    background-color: darken($primary-color, 10%);
+    background-color: color.adjust($primary-color, $lightness: -10%);
   }
 
   &:active {
@@ -60,7 +61,7 @@ $primary-color: #2c3e50;
     word-break: break-word;
 
     &:hover {
-      background-color: darken($danger-color, 10%);
+      background-color: color.adjust($danger-color, $lightness: -10%);
     }
   }
 }

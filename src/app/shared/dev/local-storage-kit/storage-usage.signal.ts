@@ -10,7 +10,7 @@ import {
  * Подсчитывает общий объём занятого пространства в localStorage (в байтах).
  * Каждый символ в localStorage кодируется в UTF-16, т.е. занимает 2 байта.
  */
-function calculateLocalStorageUsage(): number {
+export function calculateLocalStorageUsage(): number {
   let totalBytes = 0;
 
   for (let i = 0; i < localStorage.length; i++) {

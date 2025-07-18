@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "functions" as *;
 @use "mixins" as *;
 @use "variables" as *;
@@ -29,11 +30,14 @@
   color: $bj-text-light;
   font-family: $bj-font-family;
 
+  $start-color: color.mix($bj-accent, $bj-bg, 10%);
+  $end-color: color.adjust($bj-bg, $lightness: -6%);
+
   background: radial-gradient(
     ellipse at center,
-    mix($bj-accent, $bj-bg, 10%) 0%,
+    $start-color 0%,
     $bj-bg 45%,
-    darken($bj-bg, 6%) 100%
+    $end-color 100%
   );
 
   animation: candleGlow 4s ease-in-out infinite;
@@ -73,8 +77,8 @@
   border-radius: $bj-border-radius;
   background: linear-gradient(
     to bottom,
-    darken($bj-bg, 2%),
-    darken($bj-bg, 6%)
+    color.adjust($bj-bg, $lightness: -2%),
+    color.adjust($bj-bg, $lightness: -6%)
   );
   box-shadow: 0 0 rem(6) rgba(0, 0, 0, 0.4);
   font-family: $bj-font-family;

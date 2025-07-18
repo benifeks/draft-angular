@@ -52,3 +52,18 @@ h3 {
   text-align: center;
   margin: rem(16) auto 0;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: rem(48);
+  height: rem(48);
+  border: 3px solid $primary-color;
+  border-radius: 50%;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  text-align: center;
+  font-size: rem(24);
+  color: $primary-color;
+}

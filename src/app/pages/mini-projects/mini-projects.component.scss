@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "functions" as *;
 @use "mixins" as *;
 @use "variables" as *;
@@ -16,7 +17,7 @@
 a {
   padding: rem(8) rem(12);
   border-radius: rem(4);
-  background-color: lighten($primary-color, 30%);
+  background-color: color.adjust($primary-color, $lightness: 30%);
   color: $text-normal;
   font-weight: bold;
   transition: background-color 0.3s;

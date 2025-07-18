@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "functions" as *;
 @use "variables" as *;
 @use "../../styles/blackjack-variables" as *;
@@ -75,7 +76,7 @@
 
 .description {
   font-size: rem(16);
-  color: lighten($bj-text-light, 12%);
+  color: color.adjust($bj-text-light, $lightness: 12%);
   font-style: italic;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
 }

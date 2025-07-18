@@ -1,10 +1,11 @@
 import {
   Component,
+  computed,
+  effect,
   ElementRef,
   OnDestroy,
   ViewChild,
-  computed,
-  effect,
+  ViewEncapsulation,
 } from '@angular/core';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
@@ -20,6 +21,8 @@ import {
   standalone: true,
   templateUrl: './checked-users-swiper.component.html',
   styleUrl: './checked-users-swiper.component.scss',
+  imports: [],
+  encapsulation: ViewEncapsulation.None,
 })
 export class CheckedUsersSwiperComponent implements OnDestroy {
   // Сигнал на выбранных пользователей (текущий слайдер)
@@ -64,6 +67,7 @@ export class CheckedUsersSwiperComponent implements OnDestroy {
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
+        type: 'bullets',
       },
       breakpoints: {
         600: { slidesPerView: 1 },

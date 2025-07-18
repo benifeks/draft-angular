@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "functions" as *;
 @use "variables" as *;
 
@@ -11,7 +12,7 @@
   font-weight: 500;
 
   .label {
-    color: lighten($bj-accent, 15%);
+    color: color.adjust($bj-accent, $lightness: 15%);
     font-weight: 600;
   }
 

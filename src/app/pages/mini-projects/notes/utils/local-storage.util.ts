@@ -5,6 +5,11 @@ import {
   WritableSignal,
 } from '@angular/core';
 
+import {
+  calculateLocalStorageUsage,
+  localStorageUsage,
+} from '../../../../shared/dev/local-storage-kit/storage-usage.signal';
+
 export function syncSignalWithLocalStorage<T>(
   key: string,
   signal: WritableSignal<T>,
@@ -25,6 +30,9 @@ export function syncSignalWithLocalStorage<T>(
   runInInjectionContext(injector, () => {
     effect(() => {
       localStorage.setItem(key, JSON.stringify(signal()));
+
+      // 🔄 Обновляем сигнал заполненности
+      localStorageUsage.set(calculateLocalStorageUsage());
     });
   });
 }
