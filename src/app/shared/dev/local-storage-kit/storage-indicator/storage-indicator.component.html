@@ -1,22 +1,21 @@
-<h3>💾 Индикатор заполненности <span lang="en">localStorage</span></h3>
+<article class="storage-indicator card">
+  <h4>💾 Заполненность <span lang="en">localStorage</span></h4>
 
-<div class="indicator-wrapper">
-  <svg viewBox="0 0 100 100" class="indicator-svg">
-    <!-- Серый фон круга -->
-    <circle class="indicator-bg" cx="50" cy="50" r="45" />
+  <div class="indicator-wrapper">
+    <svg viewBox="0 0 100 100" class="indicator-svg">
+      <circle class="indicator-bg" cx="50" cy="50" r="45" />
+      <circle
+        class="indicator-progress"
+        [ngClass]="strokeClass()"
+        cx="50"
+        cy="50"
+        r="45"
+        [attr.stroke-dasharray]="circumference"
+        [attr.stroke-dashoffset]="dashOffset()"
+        transform="rotate(-90 50 50)"
+      />
+    </svg>
 
-    <!-- Прогресс -->
-    <circle
-      class="indicator-progress"
-      [ngClass]="strokeClass()"
-      cx="50"
-      cy="50"
-      r="45"
-      [attr.stroke-dasharray]="circumference"
-      [attr.stroke-dashoffset]="dashOffset()"
-      transform="rotate(-90 50 50)"
-    />
-  </svg>
-
-  <div class="indicator-label">{{ usagePercent() | number : "1.0-0" }}%</div>
-</div>
+    <div class="indicator-label">{{ usagePercent() | number : "1.0-0" }}%</div>
+  </div>
+</article>

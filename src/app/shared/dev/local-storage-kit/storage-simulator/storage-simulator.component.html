@@ -1,9 +1,11 @@
-<h3>Имитация заполненности <span lang="en">localStorage</span></h3>
-<div class="controls">
-  <button type="button" (click)="decrementPercent()">–1%</button>
-  <span>{{ percentToFill() }}%</span>
-  <button type="button" (click)="incrementPercent()">+1%</button>
-  <button type="button" (click)="resetSimulation()" class="reset-btn">
-    Сбросить всё (удалить тестовые данные)
-  </button>
-</div>
+<article class="storage-simulator card">
+  <h4>💾 Имитация заполненности <span lang="en">localStorage</span></h4>
+  <div class="controls">
+    <button class="btn" type="button" (click)="decrementPercent()">–1%</button>
+    <span>{{ percentToFill() }}%</span>
+    <button class="btn" type="button" (click)="incrementPercent()">+1%</button>
+    <button class="btn reset-btn" type="button" (click)="resetSimulation()">
+      Сбросить всё (удалить тестовые данные)
+    </button>
+  </div>
+</article>

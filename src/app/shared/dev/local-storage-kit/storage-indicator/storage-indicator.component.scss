@@ -1,7 +1,28 @@
+@use "functions" as *;
+@use "variables" as *;
+@use "mixins" as *;
+
+$radius: 45;
+$stroke-width: 8;
+
+.storage-indicator {
+  @include flex-column;
+  gap: rem(8);
+
+  &.card {
+    max-width: rem(200);
+    text-align: center;
+    background-color: $background-light;
+    border-radius: rem(16);
+    box-shadow: 0 rem(6) rem(20) rgba(0, 0, 0, 0.05);
+    padding: rem(16);
+  }
+}
+
 .indicator-wrapper {
-  width: 120px;
-  height: 120px;
   position: relative;
+  width: rem(120);
+  height: rem(120);
 }
 
 .indicator-svg {
@@ -10,38 +31,48 @@
 }
 
 .indicator-bg {
-  stroke: #ccc;
-  stroke-width: 10;
   fill: none;
+  stroke: #d6d6d6;
+  stroke-width: $stroke-width;
 }
 
 .indicator-progress {
-  stroke-width: 10;
   fill: none;
+  stroke-width: $stroke-width;
   stroke-linecap: round;
-}
-
-// Цвета по заполненности
-.indicator-low {
-  stroke: limegreen;
-}
-
-.indicator-medium {
-  stroke: orange;
-}
-
-.indicator-high {
-  stroke: crimson;
+  transition: stroke-dashoffset 0.4s ease, stroke 0.3s ease;
 }
 
 .indicator-label {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.25rem;
   font-weight: bold;
+  color: $text-normal;
+}
+
+// Цвета по заполненности
+.indicator-low {
+  stroke: #2ecc71;
+}
+
+.indicator-medium {
+  stroke: #f39c12;
+}
+
+.indicator-high {
+  stroke: #e74c3c;
+}
+
+@media (max-width: $breakpoint-md) {
+  .indicator-wrapper {
+    width: rem(90);
+    height: rem(90);
+  }
+
+  .indicator-label {
+    font-size: rem(14);
+  }
 }

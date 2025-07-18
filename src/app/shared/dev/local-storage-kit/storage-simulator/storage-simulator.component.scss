@@ -1,17 +1,86 @@
+@use "functions" as *;
+@use "variables" as *;
+@use "mixins" as *;
+
+$danger-color: #e74c3c;
+$text-light: #f8f9fa;
+$primary-color: #2c3e50;
+
+.storage-simulator {
+  @include flex-column;
+  gap: rem(8);
+
+  &.card {
+    max-width: rem(200);
+    text-align: center;
+    background-color: $background-light;
+    border-radius: rem(16);
+    box-shadow: 0 rem(6) rem(20) rgba(0, 0, 0, 0.05);
+    padding: rem(16);
+  }
+}
+
 .controls {
-  display: flex;
-  gap: 0.5rem;
+  @include flex-column;
+  gap: rem(14);
   align-items: center;
-  flex-wrap: wrap;
 
   span {
-    font-weight: bold;
-    min-width: 2.5rem;
-    text-align: center;
+    font-size: rem(18);
+    font-weight: 600;
+    color: $primary-color;
+  }
+}
+
+.btn {
+  padding: rem(8) rem(12);
+  font-size: rem(16);
+  font-weight: 500;
+  border: none;
+  border-radius: rem(8);
+  background-color: $primary-color;
+  color: $text-light;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
   }
 
-  .reset-btn {
-    margin-left: auto;
-    color: crimson;
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &.reset-btn {
+    background-color: $danger-color;
+    font-size: rem(16);
+    padding: rem(8);
+    line-height: 1.2;
+    white-space: normal;
+    word-break: break-word;
+
+    &:hover {
+      background-color: darken($danger-color, 10%);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .controls {
+    gap: rem(8);
+
+    span {
+      font-size: rem(16);
+    }
+
+    .btn {
+      font-size: rem(16);
+      padding: rem(8) rem(12);
+
+      &.reset-btn {
+        font-size: rem(16);
+        padding: rem(8);
+      }
+    }
   }
 }
