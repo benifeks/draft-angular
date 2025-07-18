@@ -1,0 +1,73 @@
+@use "sass:color";
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+
+.note-form {
+  @include flex-column;
+  gap: rem(16);
+  max-width: rem(600);
+  margin: 0 auto;
+  padding: rem(24);
+
+  background-color: color.adjust($primary-color, $lightness: 30%);
+  border-radius: rem(16);
+  box-shadow: 0 rem(4) rem(10) rgba(0, 0, 0, 0.06);
+
+  label {
+    font-weight: 600;
+    color: $text-normal;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: rem(8) rem(12);
+    border: 1px solid #ccc;
+    border-radius: rem(8);
+    font-size: $font-size-base;
+    color: $text-normal;
+    background-color: #fff;
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+      box-shadow: 0 0 0 rem(3) rgba(52, 152, 219, 0.15);
+    }
+  }
+
+  button[type="submit"] {
+    align-self: flex-end;
+    padding: rem(8) rem(12);
+    font-size: $font-size-base;
+    font-weight: 600;
+    border: none;
+    border-radius: rem(8);
+    background-color: $primary-color;
+    color: $text-light;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: -7%);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .note-form {
+    padding: rem(16);
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .note-form {
+    padding: rem(12);
+    font-size: $font-size-small;
+
+    button[type="submit"] {
+      width: 100%;
+      align-self: stretch;
+    }
+  }
+}

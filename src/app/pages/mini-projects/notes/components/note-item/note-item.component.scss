@@ -1,46 +1,102 @@
+@use "sass:color";
+@use "functions" as *;
+@use "mixins" as *;
+@use "variables" as *;
+
 .modal-backdrop {
+  @include flex-center;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 999;
 
-.modal {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  max-width: 500px;
-  width: 100%;
+  .modal {
+    background-color: $background-light;
+    color: $text-normal;
+    padding: rem(24);
+    border-radius: rem(16);
+    box-shadow: 0 rem(8) rem(24) rgba(0, 0, 0, 0.15);
+    max-width: rem(600);
+    width: 90%;
+    position: relative;
+    overflow: hidden;
 
-  h2 {
-    margin-bottom: 0.5rem;
-  }
+    h2 {
+      margin-top: 0;
+      font-size: $font-size-xl;
+      margin-bottom: rem(16);
+      color: $text-normal;
+    }
 
-  .content {
-    margin: 1rem 0;
-    white-space: pre-line;
-  }
+    .content {
+      white-space: pre-wrap;
+      margin-bottom: rem(24);
+      font-size: $font-size-base;
+      line-height: 1.5;
+    }
 
-  .meta {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1rem;
+    .meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: $font-size-base;
+      color: color.adjust($text-normal, $lightness: -20%);
+      margin-bottom: rem(16);
+    }
 
-    small {
-      display: block;
+    .buttons {
+      display: flex;
+      gap: rem(16);
+      flex-wrap: wrap;
+
+      button {
+        padding: rem(8) rem(16);
+        border-radius: rem(8);
+        font-weight: 600;
+        font-size: rem(16);
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.2s ease-in-out;
+
+        &:first-child {
+          background-color: $primary-color;
+          color: $text-light;
+
+          &:hover {
+            background-color: color.adjust($primary-color, $lightness: -7%);
+          }
+        }
+
+        &:last-child {
+          background-color: #e0e0e0;
+          color: $text-normal;
+
+          &:hover {
+            background-color: color.adjust(#e0e0e0, $lightness: -10%);
+          }
+        }
+      }
     }
   }
+}
 
-  .buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
+@media (max-width: $breakpoint-md) {
+  .modal-backdrop .modal {
+    padding: rem(24);
+  }
+}
 
-    button {
-      padding: 0.4rem 1rem;
+@media (max-width: $breakpoint-sm) {
+  .modal-backdrop .modal {
+    margin-top: rem(100);
+    padding: rem(16);
+
+    .buttons {
+      flex-direction: column;
+
+      button {
+        width: 100%;
+      }
     }
   }
 }

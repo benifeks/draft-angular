@@ -7,6 +7,7 @@ $stroke-width: 8;
 
 .storage-indicator {
   @include flex-column;
+  margin: 0 auto;
   gap: rem(8);
 
   &.card {
